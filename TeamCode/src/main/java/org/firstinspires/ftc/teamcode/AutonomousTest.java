@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+
 @Autonomous (name = "AutonomousTest", group = "Tests")
 public class AutonomousTest extends LinearOpMode {
     //Sets global variables outside of the run opmode method.
@@ -30,6 +31,8 @@ public class AutonomousTest extends LinearOpMode {
             backLeft = hardwareMap.dcMotor.get("backLeft");
             backRight = hardwareMap.dcMotor.get("backRight");
 
+            Robot robot = new Robot(frontLeft, frontRight, backLeft, backRight);
+
             slide = hardwareMap.dcMotor.get("slide");
 
             claw = hardwareMap.servo.get("claw");
@@ -40,6 +43,9 @@ public class AutonomousTest extends LinearOpMode {
 
             waitForStart();
 
+            robot.Strafe(0.5);
+
+            robot.DriveForwardDistance(5,0.5);
 
         }
 
