@@ -33,7 +33,7 @@ public class AutonomousTest extends LinearOpMode {
 
             Robot robot = new Robot(frontLeft, frontRight, backLeft, backRight);
 
-            slide = hardwareMap.dcMotor.get("slide");
+            slide = hardwareMap.dcMotor.get("Slide");
 
             claw = hardwareMap.servo.get("claw");
 
