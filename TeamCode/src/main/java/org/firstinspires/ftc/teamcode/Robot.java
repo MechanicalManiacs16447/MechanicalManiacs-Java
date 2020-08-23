@@ -38,6 +38,7 @@ public class Robot {
     public void DriveForwardDistance(double inches, double power)
     {
         int diameter = 1;
+        double ticksPerRev = frontLeft.getMotorType().getTicksPerRev();
 
         //Rest Encoders.
         frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -48,7 +49,7 @@ public class Robot {
         //Calculate tick value that the motors need to turn.
         double circumference = 3.14*diameter;
         double rotationsNeeded = inches/circumference;
-        int encoderDrivingTarget = (int)(rotationsNeeded*1120);
+        int encoderDrivingTarget = (int)(rotationsNeeded*ticksPerRev);
 
         //Set tick value to the motors' target position.
         frontLeft.setTargetPosition(encoderDrivingTarget);
